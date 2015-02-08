@@ -20,4 +20,4 @@ angular.module('anaximander', [
 
     $urlRouterProvider.otherwise('/');
   })
-;
+  .constant('FIREBASE_URL', 'https://anaximander.firebaseio.com');
