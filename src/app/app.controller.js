@@ -1,6 +1,26 @@
 (function () {
 
     angular.module('anaximander')
-    .controller('AppCtrl', [ '$scope', function:wq
+    .controller('AppCtrl', [ 
+        '$scope', 
+        'authenticationService', 
+        AppCtrl 
+    ]);
+
+    function AppCtrl($scope, authenticationService) {
+
+        var self = this;
+        self.signIn = signIn;
+
+        authenticationService.onAuthentication(onSignedIn);
+
+        function signIn() {
+            authenticationService.signIn();
+        }
+
+        function onSignedIn(authData) {
+            self.user = authData.facebook.cachedUserProfile;
+        }
+    }
 
 })();

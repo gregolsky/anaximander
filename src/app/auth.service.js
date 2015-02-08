@@ -11,11 +11,12 @@
     function authenticationServiceFactory($q, FIREBASE_URL) {
 
         return {
-            signIn: signIn   
+            signIn: signIn,
+            onAuthentication: onAuthentication   
         };
 
-        function signIn() {
 
+        function signIn() {
             var ref = new Firebase(FIREBASE_URL);
 
             var deferred = $q.defer();
@@ -29,6 +30,11 @@
             });
 
             return deferred.promise;
+        }
+
+        function onAuthentication(cb) {
+            var ref = new Firebase(FIREBASE_URL);
+            ref.onAuth(cb);
         }
         
     }

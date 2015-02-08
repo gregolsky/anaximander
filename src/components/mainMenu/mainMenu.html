@@ -11,10 +11,15 @@
         <li class="active"><a ng-href="#">Maps</a></li>
         <li><a ng-href="#">About</a></li>
       </ul>
-
       <ul class="nav navbar-nav navbar-right">
-          <li><a ng-click='signIn()' >Sign in</a></li>
+
+          <li ng-if="!app.user"><a ng-click='app.signIn()' >Sign in</a></li>
+          <li ng-if="app.user">
+              <img style="height: 50px; display: inline;" ng-src="{{ app.user.picture.data.url }}" class="img-circle img-responsive" /> 
+              <span>{{ app.user.name }}</span>
+          </li>
       </ul>
     </div>
   </div>
 </nav>
+{{ app.user | json }}
