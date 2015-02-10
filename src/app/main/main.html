@@ -1,11 +1,17 @@
 <div class="container main">
 
     <div class="row">
-        <h3>Maps</h3>
-        <a ng-if="user.signedIn" href="#/maps/create">Create a map</a>
+        <h3>Maps</h3> <input placeholder="Search" />
+
+        <div ng-show="!!app.user">
+            <a href="#/maps/create">
+                Create a map
+            </a>
+        </div>
+
         <ul class="main__maps-list" >
-            <li ng-repeat="m in maps">
-                <map-entry data="m" ></map-entry>
+            <li ng-repeat="m in main.maps">
+                {{ m | json }}
             </li>
         </ul>
     </div>

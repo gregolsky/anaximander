@@ -1,36 +1,36 @@
-<form class="form-horizontal" novalidate ng-submit="mapForm.onSubmit()">
+<form class="form-horizontal" novalidate ng-submit="submit()">
     <div class="form-group">
         <label for="name" class="col-sm-3 control-label">Name</label>
         <div class="col-sm-9">
-            <input type="text" name="name" class="form-control" ng-model="mapForm.name" />
+            <input type="text" name="name" class="form-control" ng-model="model.name" />
         </div>
     </div>
 
     <div class="form-group">
         <label for="url" class="col-sm-3 control-label">Map image URL</label>
         <div class="col-sm-9">
-            <input type="url" name="url" class="form-control" ng-model="mapForm.imageUrl" />
+            <input type="text" name="url" class="form-control" ng-model="model.imageUrl" />
         </div>
     </div>
 
     <div class="form-group">
         <label for="description" class="col-sm-3 control-label">Description</label>
         <div class="col-sm-9">
-            <textarea name="description" class="form-control" ng-model="mapForm.description" />
+            <textarea name="description" class="form-control" ng-model="model.description" />
         </div>
     </div>
 
     <div class="form-group">
         <label for="password" class="col-sm-3 control-label">Edition password</label>
         <div class="col-sm-9">
-            <input type="password" name="password" class="form-control" ng-model="mapForm.password" />
+            <input type="password" name="password" class="form-control" ng-model="model.password" />
         </div>
     </div>
 
     <div class="form-group">
         <label for="repeatPassword" class="col-sm-3 control-label">Repeat password</label>
         <div class="col-sm-9">
-            <input type="password" name="repeatPassword" class="form-control" ng-model="mapForm.repeatPassword" />
+            <input type="password" name="repeatPassword" class="form-control" ng-model="model.repeatPassword" />
         </div>
     </div>
 

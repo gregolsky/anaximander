@@ -19,7 +19,9 @@
         }
 
         function onSignedIn(authData) {
-            self.user = authData.facebook.cachedUserProfile;
+            if (authData) {
+                self.user = authData.facebook.cachedUserProfile;
+            }
         }
     }
 

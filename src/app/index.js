@@ -1,21 +1,29 @@
 'use strict';
 
 angular.module('anaximander', [
-    'ngAnimate', 
-    'ngCookies', 
+//    'ngAnimate', 
+//    'ngCookies', 
     'ngTouch', 
     'ngSanitize', 
-    'ngResource', 
+//    'ngResource', 
     'ui.router', 
     'ui.bootstrap',
     'firebase'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
+
     $stateProvider
       .state('home', {
         url: '/',
         templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        controllerAs: 'main'
+      })
+      .state('mapsCreate', {
+        url: '/maps/create',
+        templateUrl: 'app/map/create/create.html',
+        controller: 'CreateMapCtrl',
+        controllerAs: 'createMap'
       });
 
     $urlRouterProvider.otherwise('/');

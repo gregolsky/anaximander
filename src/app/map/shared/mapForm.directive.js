@@ -7,8 +7,8 @@
             restrict: 'E',
             templateUrl: 'app/map/shared/mapForm.html',
             scope: {
-                submitAction: '&',
-                cancelAction: '&',
+                onSubmit: '&',
+                onCancel: '&',
                 editables: '=',
                 data: '='
             },
@@ -16,19 +16,19 @@
 
                 $scope.model = {};
 
-                $scope.onCancel = onCancel;
-                $scope.onSubmit = onSubmit;
+                $scope.cancel = cancel;
+                $scope.submit = submit;
 
                 $scope.$watch('data', function (newVal) {
-                    $scope.model = prepareModel(newVal);
+                    $scope.model = newVal ? prepareModel(newVal) : {};
                 });
 
-                function onSubmit() {
-                    $scope.submitAction($scope.model);
+                function submit() {
+                    $scope.onSubmit({ data: $scope.model });
                 }
 
-                function onCancel() {
-                    $scope.cancelAction();
+                function cancel() {
+                    $scope.onCancel();
                 }
 
                 function prepareModel(data) {
