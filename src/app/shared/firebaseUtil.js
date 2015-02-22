@@ -6,7 +6,6 @@
     function firebaseUtil(FIREBASE_URL) {
         return {
             ref: ref
-
         };
 
         function ref(path) {

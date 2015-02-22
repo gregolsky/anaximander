@@ -2,7 +2,7 @@
 
 angular.module('anaximander', [
 //    'ngAnimate', 
-//    'ngCookies', 
+    'ngCookies', 
     'ngTouch', 
     'ngSanitize', 
 //    'ngResource', 
@@ -18,6 +18,10 @@ angular.module('anaximander', [
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
+      })
+      .state('about', {
+        url: '/about',
+        templateUrl: 'app/about/about.html',
       })
       .state('mapsCreate', {
         url: '/maps/create',

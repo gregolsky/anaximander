@@ -30,8 +30,8 @@
         function subscribe() {
             var self = this;
 
-            self.queryFn(self.ref, function (snapshot) {
-                self.deferred.notify(snapshot);    
+            self.queryFn(self.ref, function (data) {
+                self.deferred.notify(data);    
             });
 
             return self.deferred.promise;

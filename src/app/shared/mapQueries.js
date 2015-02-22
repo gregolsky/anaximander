@@ -14,7 +14,14 @@
                 ref
                 .orderByChild('createdAt')
                 .limitToLast(10)
-                .on('value', cb);
+                .on('value', function (snapshot) {
+                   var result = _.map(snapshot.val(), function (val, name) {
+                        val.id = name;
+                        return val;
+                   });
+
+                   cb(result);
+                });
             });
         }
 
