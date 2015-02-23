@@ -1,9 +1,9 @@
 (function () {
 
 angular.module('anaximander')
-.controller('CreateMapCtrl', [ '$state', 'firebaseUtil', CreateMapCtrl ]);
+.controller('CreateMapCtrl', [ '$state', 'mapFactory', 'mapRepository', CreateMapCtrl ]);
 
-function CreateMapCtrl($state, firebaseUtil) {
+function CreateMapCtrl($state, mapFactory, mapRepository) {
     var self = this;
 
     self.data = {};
@@ -12,7 +12,9 @@ function CreateMapCtrl($state, firebaseUtil) {
 
     function submit(data) {
         data.createdAt = new Date().getTime();
-        firebaseUtil.ref('/maps').push(data);
+        var map = mapFactory.create(data);
+        mapRepository.save();
+
         $state.go('home');
     }
 

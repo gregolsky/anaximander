@@ -1,7 +1,9 @@
 {
   "name": "anaximander",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "crypto-js": "^3.1.2-5"
+  },
   "devDependencies": {
     "gulp": "~3.8.10",
     "gulp-autoprefixer": "~2.0.0",

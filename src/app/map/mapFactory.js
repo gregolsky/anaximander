@@ -1,19 +1,17 @@
 (function() {
 
     angular.module('anaximander')
-    .factory('mapFactory', [ 'Map', createMapFactory ]);
+    .factory('mapFactory', [ 'Map', defineMapFactory ]);
 
-    function createMapFactory(Map) {
-        return new MapFactory();
-
-        function MapFactory() {
-
-        }
-
+    function defineMapFactory(Map) {
         MapFactory.prototype.create = create;
 
-        function create(data) {
+        return new MapFactory();
 
+        function MapFactory() { }
+
+        function create(data) {
+            return new Map(data);
         }
     }
 
