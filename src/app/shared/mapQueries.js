@@ -12,7 +12,7 @@
         function latest10() {
             return query.create('/maps', function(ref, cb) {
                 ref
-                .orderByChild('createdAt')
+                .orderByChild('ts')
                 .limitToLast(10)
                 .on('value', function (snapshot) {
                    var result = _.map(snapshot.val(), function (val, name) {

@@ -10,7 +10,7 @@
             createMapRepository 
         ]);
 
-        function createMapRepository(firebaseUtil, Map) {
+        function createMapRepository(firebaseUtil, guard, Map) {
             return {
                 save: save,
                 get: get,

@@ -1,22 +1,24 @@
 (function () {
 
     angular.module('anaximander')
-    .factory('Map', [ 'guard', defineMap ]);
+    .factory('Map', [ 'md5', 'guard', defineMap ]);
 
-    function defineMap(guard) {
+    function defineMap(md5, guard) {
+        Map.prototype.data = data;
         return Map;
 
         function Map(data) {
             validate(data);
 
             this.id = data.id || null;
-            this.passwordHash = CryptoJS.SHA3(data.password, { outputLength: 256 });
+            this.passwordHash = md5.createHash(data.password);
             this.name = data.name;
             this.imageUrl = data.imageUrl;
             this.description = data.description;
+            this.ts = new Date().getTime();
         }
 
-        Map.prototype.data = function () { 
+        function data() {
             var result = _.extend(this);
             delete result.id;
             return result;

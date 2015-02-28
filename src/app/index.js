@@ -8,7 +8,8 @@ angular.module('anaximander', [
 //    'ngResource', 
     'ui.router', 
     'ui.bootstrap',
-    'firebase'
+    'firebase',
+    'angular-md5'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
 

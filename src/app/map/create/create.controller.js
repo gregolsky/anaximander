@@ -13,8 +13,7 @@ function CreateMapCtrl($state, mapFactory, mapRepository) {
     function submit(data) {
         data.createdAt = new Date().getTime();
         var map = mapFactory.create(data);
-        mapRepository.save();
-
+        mapRepository.save(map);
         $state.go('home');
     }
 
