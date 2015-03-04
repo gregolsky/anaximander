@@ -29,6 +29,12 @@ angular.module('anaximander', [
         templateUrl: 'app/map/create/create.html',
         controller: 'CreateMapCtrl',
         controllerAs: 'createMap'
+      })
+      .state('mapsDisplay', {
+        url: '/maps/{mapId}',
+        templateUrl: 'app/map/display/display.html',
+        controller: 'DisplayMapCtrl',
+        controllerAs: 'displayMap'
       });
 
     $urlRouterProvider.otherwise('/');
