@@ -6,7 +6,8 @@
     function mapQueries(query) {
 
         return {
-           latest10: latest10
+           latest10: latest10,
+           byId: byId
         };
 
         function latest10() {
@@ -25,6 +26,15 @@
             });
         }
 
+        function byId(id) {
+            return query.create('/maps/' + id, function(ref, cb) {
+                ref
+                .on('value', function (snapshot) {
+                   var result = snapshot.val();
+                   cb(result);
+                });
+            });
+        }
 
     }
 

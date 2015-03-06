@@ -12,7 +12,9 @@
 
         <ul>
             <li ng-repeat="map in main.maps" >
-                {{ map | json }}
+                <a ui-sref="mapsDisplay({ mapId: map.id })" >
+                    {{ map.name }}
+                </a>
             </li>
         </ul>
 

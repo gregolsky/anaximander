@@ -1,12 +1,22 @@
 (function () {
 
     angular.module('anaximander')
-    .controller('MapDisplayController', [ 
+    .controller('DisplayMapCtrl', [ 
         '$stateParams', 
+        'mapQueries',
         'mapRepository', 
         MapDisplayController ]);
 
-    function MapDisplayController($stateParams, mapRepository) {
+    function MapDisplayController($stateParams, mapQueries, mapRepository) {
+
+        var self = this;
+        this.map = null;
+
+        mapQueries.byId($stateParams.mapId)
+            .subscribe()
+            .then(null, null, function (map) {
+                self.map = map;
+            });
 
     }
 
